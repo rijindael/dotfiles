@@ -1,0 +1,13 @@
+[window]
+decorations = "None"
+
+[font]
+size = 8
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
+bindings = [{ mouse = "Right", mods = "Control", action = "Paste" },]
