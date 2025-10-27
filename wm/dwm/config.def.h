@@ -34,7 +34,6 @@ static const Rule rules[] = {
 	{ "TelegramDesktop", NULL,       NULL,       1 << 7,       0,           -1 },
 	{ "obsidian",        NULL,       NULL,       1 << 6,       0,           -1 },
 	{ "Virt-manager",    NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "jetbrains-goland",NULL,       NULL,       1 << 2,       0,           -1 },
 };
 
 /* layout(s) */
