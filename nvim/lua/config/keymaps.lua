@@ -1,25 +1,68 @@
-vim.keymap.set("i", "jk", "<Esc>", { noremap = true })
-vim.keymap.set("n", ",<Space>", ":nohlsearch<CR>", { noremap = true })
-vim.keymap.set("n", ",q", "<CMD>q<CR>", { noremap = true })
-vim.keymap.set("n", ",w", "<CMD>w<CR>", { noremap = true })
+local set = vim.keymap.set
+local map = vim.api.nvim_set_keymap
+local silent_opts = { noremap = true, silent = true }
+local opts = { noremap = true }
+
+set("i", "jk", "<Esc>", opts)
+set("n", ",<Space>", ":nohlsearch<CR>", opts)
+set("n", ",q", "<CMD>q<CR>", opts)
+set("n", ",w", "<CMD>w<CR>", opts)
 
 -- Переключение вкладок
-vim.keymap.set("n", "H", "gT", { noremap = true })
-vim.keymap.set("n", "L", "gt", { noremap = true })
+set("n", "H", "gT", opts)
+set("n", "L", "gt", opts)
 
 -- Telescope
-vim.keymap.set("n", ",f", ":Telescope find_files<CR>", { noremap = true })
-vim.keymap.set("n", ",g", ":Telescope live_grep<CR>", { noremap = true })
+set("n", ",f", ":Telescope find_files<CR>", opts)
+set("n", ",g", ":Telescope live_grep<CR>", opts)
 
 -- NeoTree hotkeys
-vim.keymap.set("n", ",t", ":Neotree toggle<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", ",l", ":Neotree filesystem reveal<CR>", { noremap = true, silent = true })
+set("n", ",t", ":Neotree toggle<CR>", silent_opts)
+set("n", ",l", ":Neotree filesystem reveal<CR>", silent_opts)
 
 -- create vertical tab
-vim.keymap.set("n", ",s", "<CMD>vsplit<CR>", { noremap = true, silent = true })
+set("n", ",s", "<CMD>vsplit<CR>", silent_opts)
 
 -- Window Navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
+set("n", "<C-h>", "<C-w>h", silent_opts)
+set("n", "<C-l>", "<C-w>l", silent_opts)
+set("n", "<C-k>", "<C-w>k", silent_opts)
+set("n", "<C-j>", "<C-w>j", silent_opts)
+
+-- barbar hotkeys
+-- Move to previous/next
+map("n", "<A-,>", "<Cmd>BufferPrevious<CR>", silent_opts)
+map("n", "<A-.>", "<Cmd>BufferNext<CR>", silent_opts)
+
+-- Re-order to previous/next
+map("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", silent_opts)
+map("n", "<A->>", "<Cmd>BufferMoveNext<CR>", silent_opts)
+
+-- Goto buffer in position...
+map("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", silent_opts)
+map("n", "<A-2>", "<Cmd>BufferGoto 2<CR>", silent_opts)
+map("n", "<A-3>", "<Cmd>BufferGoto 3<CR>", silent_opts)
+map("n", "<A-4>", "<Cmd>BufferGoto 4<CR>", silent_opts)
+map("n", "<A-5>", "<Cmd>BufferGoto 5<CR>", silent_opts)
+map("n", "<A-6>", "<Cmd>BufferGoto 6<CR>", silent_opts)
+map("n", "<A-7>", "<Cmd>BufferGoto 7<CR>", silent_opts)
+map("n", "<A-8>", "<Cmd>BufferGoto 8<CR>", silent_opts)
+map("n", "<A-9>", "<Cmd>BufferGoto 9<CR>", silent_opts)
+map("n", "<A-0>", "<Cmd>BufferLast<CR>", silent_opts)
+
+-- Pin/unpin buffer
+map("n", "<A-p>", "<Cmd>BufferPin<CR>", silent_opts)
+
+-- Close buffer
+map("n", "<A-c>", "<Cmd>BufferClose<CR>", silent_opts)
+
+-- Magic buffer-picking mode
+map("n", "<C-p>", "<Cmd>BufferPick<CR>", silent_opts)
+map("n", "<C-s-p>", "<Cmd>BufferPickDelete<CR>", silent_opts)
+
+-- Sort automatically by...
+map("n", "<Space>bb", "<Cmd>BufferOrderByBufferNumber<CR>", silent_opts)
+map("n", "<Space>bn", "<Cmd>BufferOrderByName<CR>", silent_opts)
+map("n", "<Space>bd", "<Cmd>BufferOrderByDirectory<CR>", silent_opts)
+map("n", "<Space>bl", "<Cmd>BufferOrderByLanguage<CR>", silent_opts)
+map("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", silent_opts)

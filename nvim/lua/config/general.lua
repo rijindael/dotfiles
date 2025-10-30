@@ -22,6 +22,8 @@ vim.g.netrw_banner = 0 -- hide banner above files
 vim.g.netrw_liststyle = 3 -- tree instead of plain view
 vim.g.netrw_browse_split = 3 -- vertical split window when Enter pressed on file
 
+vim.g.barbar_auto_setup = false -- from barbar plugin docs
+
 -- Keymaps for programming languages
 vim.api.nvim_create_autocmd("FileType", {
 
