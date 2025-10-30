@@ -7,10 +7,12 @@ return {
 	config = function()
 		require("barbar").setup({
 			tabpages = true,
-			gitsigns = {
-				added = { enabled = true, icon = "+" },
-				changed = { enabled = true, icon = "~" },
-				deleted = { enabled = true, icon = "-" },
+			icons = {
+				gitsigns = {
+					added = { enabled = true, icon = "+" },
+					changed = { enabled = true, icon = "~" },
+					deleted = { enabled = true, icon = "-" },
+				},
 			},
 			insert_at_end = true,
 		})
