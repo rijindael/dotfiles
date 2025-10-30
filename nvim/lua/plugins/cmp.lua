@@ -13,14 +13,13 @@ return {
 			completion = {
 				autocomplete = false, -- Отключение автозапуска автодополнения
 			},
+			snippet = {
+				expand = function(args)
+					vim.snippet.expand(args.body)
+				end,
+			},
 			mapping = cmp.mapping.preset.insert({
-				["<C-Space>"] = cmp.mapping.complete({
-					config = {
-						sources = {
-							{ name = "nvim_lsp", priority = 1000 }, -- Только LSP-автодополнения
-						},
-					},
-				}), -- Вызов автодополнений от LSP
+				["<C-Space>"] = cmp.mapping.complete(), -- Вызов автодополненй от LSP
 				["<C-e>"] = cmp.mapping.abort(), -- Закрыть меню
 				["<CR>"] = cmp.mapping.confirm({ select = true }), -- Подтвердить выбор
 				["<Tab>"] = cmp.mapping(function(fallback)
@@ -39,7 +38,7 @@ return {
 				end, { "i", "s" }), -- Навигация вверх
 			}),
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp", priority = 1000 }, -- Только LSP
+				{ name = "nvim_lsp" },
 			}),
 			formatting = {
 				format = lspkind.cmp_format({
@@ -54,9 +53,5 @@ return {
 
 		-- Подсветка элементов автодополнения
 		vim.cmd([[highlight! default link CmpItemKind CmpItemMenuDefault]])
-
-		-- Отладка загрузки плагина
-		local lazy_stats = require("lazy").stats()
-		print("nvim-cmp loaded. Total plugins: " .. lazy_stats.count .. ", Loaded plugins: " .. lazy_stats.loaded)
 	end,
 }
