@@ -16,7 +16,6 @@ XF86MonBrightnessDown : Уменьшает яркость экрана на 5% (
 XF86AudioMute : Переключает mute/unmute звука (pactl set-sink-mute 0 toggle)
 XF86AudioLowerVolume : Уменьшает громкость на 5% (pactl set-sink-volume 0 -5%)
 XF86AudioRaiseVolume : Увеличивает громкость на 5% (pactl set-sink-volume 0 +5%)
-Ctrl + F1 : переключает микрофон
 
 ### Запуск приложений
 
