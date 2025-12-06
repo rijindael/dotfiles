@@ -11,3 +11,18 @@
 [Settings]
 gtk-cursor-theme-name=Bibata-Modern-Ice
 ```
+
+- for setting in qt apps configure ~/.Xresources
+
+```
+Xcursor.theme: Bibata-Modern-Ice
+Xcursor.size: 24
+```
+
+than `xrdb -merge ~/.Xresources`
+
+## Set dark theme to telegram-desktop file dialog
+
+- install adwaita-qt6 package
+- install qt6ct
+- run qt6ct, set Style 'Adwaita-Dark'
